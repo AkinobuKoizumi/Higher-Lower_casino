@@ -10,11 +10,24 @@
     const wrapper = document.getElementById('wrapper');
     const result = document.getElementById('result');
     const retry = document.getElementById('retry');
+    const one = document.getElementById('one');
+    const five = document.getElementById('five');
+    const ten = document.getElementById('ten');
+    const twentyfive = document.getElementById('twenty-five');
+    const onehandred = document.getElementById('one-handred');   
+    const money = document.getElementById('money');
+    const plus = document.getElementById('plus');
     
     const min = 1;
     const max = 13;
     let dealer_value = 0;
     let player_value = 0;
+    
+    /*-------
+     * tip管理
+     --------*/
+    let value = 1500;
+    money.innerHTML = value;
 
 
     /*------------------
@@ -51,13 +64,15 @@
         result.innerHTML = str;
         result.classList.remove('hidden');
     }
-    
+    /*--------------------
+     *判定関数
+     ---------------------*/
     function getResult(guess){
         if(guess === 'higer' && player_value > dealer_value 
          ||guess === 'lower' && player_value < dealer_value){
-             return ' win!!!';
+            return ' win!!!';
          } else {
-             return ' lose...';
+            return ' lose...';
          }
     }
     
@@ -83,5 +98,42 @@
             init();   
         });
     });    
+    /*---------------------
+     *oneイベント処理
+     ----------------------*/
+    one.addEventListener('click', function() {
+        value = value - 1;
+        money.innerHTML =  value;
+    
+    });
+    /*---------------------
+     *fiveイベント処理
+     ----------------------*/
+    five.addEventListener('click', function() {
+        value = value - 5;
+        money.innerHTML =  value;        
+    });
+    /*---------------------
+     *tenイベント処理
+     ----------------------*/
+    ten.addEventListener('click', function() {
+        value = value - 10;
+        money.innerHTML =  value;
+    });
+    /*---------------------
+     *twenty-fiveイベント処理
+     ----------------------*/
+    twentyfive.addEventListener('click', function() {
+        value = value -25;
+        money.innerHTML = value;
 
+    });
+    /*---------------------
+     *one-handredイベント処理
+     ----------------------*/
+    onehandred.addEventListener('click', function() {
+        value = value -100;
+        money.innerHTML = value;
+    });
+                    
 }

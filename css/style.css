@@ -58,7 +58,10 @@ body {
   box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
   line-height: 112px;
 }
-
+.btn:hover {
+  margin-top: 2px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
 
 .card {
   width: 90px;
@@ -115,7 +118,22 @@ body {
   box-sizing: border-box;
   border: 1.4px solid #663913;
   box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
 }
+.cahrge-wrapper {
+  display: inline-block;
+  display: flex;
+}
+.charge {
+  display: inline-block;
+  font-size: 15px;
+  height: 22px;
+  background: #262525;
+  line-height: 20px;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+}
+
 .re-btn {
   color: #fff;
   width: 90px;
@@ -127,4 +145,66 @@ body {
   text-align: center;
   line-height: 44px;
   cursor: pointer;
+}
+.money {
+  width: 55px;
+}
+.plus {
+  width: 22px;
+  cursor: pointer;
+}
+.tip-wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.tip {
+  color: #fff;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 44px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.one {
+  background: #7d7a7a;
+  border: 3px solid #fff;
+}
+.one:hover {
+  opacity: 0.85;
+  
+}
+.five {
+  background: #660033;
+  border: 3px solid #fff;
+}
+.five:hover {
+  opacity: 0.85; 
+}
+.ten {
+  background: #006699;
+  border: 3px solid #fff;
+}
+.ten:hover {
+  opacity: 0.85; 
+}
+.twenty-five {
+  background: #336633;
+  border: 3px solid #fff;
+}
+.twenty-five:hover {
+  opacity: 0.85;
+}
+.one-handred {
+  background: #262525;
+  border: 3px solid #fff;
+}
+.one-handred:hover {
+  opacity: 0.85;
+}
+.plus:hover {
+  opacity: 0.85;
 }
