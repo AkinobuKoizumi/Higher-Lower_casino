@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <title>Higher Lower</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 <body>
+  
+  
   <div class="container">
     <div class="dealer">
-      <div class="card" id="dealer"></div>
+      <div class="card" id="dealer_card"></div>
     </div>
     <div class="controls">
       <div class="btn" id="higher">HIGHER</div>
@@ -18,13 +21,13 @@
     <div class="player">
       <div id="wrapper">
         <div class="card card-back">?</div>
-        <div class="card card-front" id="player">5</div>
+        <div class="card card-front" id="player_card">5</div>
       </div>
     </div>
     <div class="bottom-container">
       <div class="charge-wrapper">
         <div class="money charge">$<span id="money"></span></div>
-        <div id="plus" class="charge plus">+</div>
+        <div id="show" class="charge plus">+</div>
       </div>
       <div class="tip-wrapper">
         <div class="tip one" id="one">1</div>
@@ -36,6 +39,43 @@
       <div class="re-btn" id="retry">retry</div>
     </div>
   </div>
+  
+  
+  
+  <div class="cover" id="cover"></div>
+  <div class="bank" id="bank">
+    <div class="bank-header">
+      <div class="ib">
+        <i class="far fa-times-circle" id="hide"></i>
+      </div>
+      <div class="ib">銀行</div>
+    </div>
+    <div class="panel">
+      <div class="ib">100,000$<div class="jpn">無料30%</div></div>
+      <div class="money-btn ib">￥1800</div>
+    </div>
+    <div class="panel">
+      <div class="ib">1,250,000$<div class="jpn">無料150%</div></div>
+      <div class="money-btn ib">￥12,000</div>
+    </div>
+    <div class="panel">
+      <div class="ib">500,000$<div class="jpn">無料100%</div></div>
+      <div class="money-btn ib">￥6,100</div>
+    </div>
+    <div class="panel">
+      <div class="ib">200,000$<div class="jpn">無料60%</div></div>
+      <div class="money-btn ib">￥3,060</div>
+    </div>
+    <div class="panel">
+      <div class="ib">30,000$<div class="jpn">無料20%</div></div>
+      <div class="money-btn ib">￥610</div>
+    </div>
+    <div class="panel">
+      <div class="ib">5,000$</div>
+      <div class="money-btn ib">￥250</div>
+    </div>
+  </div>
+  
   <script src="./js/main.js"></script>
 </body>
 </html>

@@ -3,12 +3,12 @@
     /*----------------
      *idの取得
      -----------------*/
-    const dealer = document.getElementById('dealer');
-    const player = document.getElementById('player');
-    const higher = document.getElementById('higher');
-    const lower = document.getElementById('lower');
+    const dealerCard = document.getElementById('dealer_card');
+    const playerCard = document.getElementById('player_card');
+    var higher = document.getElementById('higher');
+    var lower = document.getElementById('lower');
     const wrapper = document.getElementById('wrapper');
-    const result = document.getElementById('result');
+    var result = document.getElementById('result');
     const retry = document.getElementById('retry');
     const one = document.getElementById('one');
     const five = document.getElementById('five');
@@ -16,12 +16,13 @@
     const twentyfive = document.getElementById('twenty-five');
     const onehandred = document.getElementById('one-handred');   
     const money = document.getElementById('money');
-    const plus = document.getElementById('plus');
+    const show = document.getElementById('show');
+    const hide = document.getElementById('hide');
     
-    const min = 1;
-    const max = 13;
-    let dealer_value = 0;
-    let player_value = 0;
+
+
+    var dealerValue;
+    var playerValue;
     
     /*-------
      * tip管理
@@ -34,69 +35,77 @@
      *乱数発生
      -------------------*/
     function getRandom(){
-        return Math.floor(Math.random() * (max + 1 - min)) + min;
+        return Math.floor(Math.random() * 13 + 1);
     }
     
     /*------------------
      *カードセット
      -------------------*/
-    function init(){
-        if(wrapper.className === 'open'){
-            return ;
-        }
-        dealer_value = getRandom();
-        dealer.innerHTML = dealer_value;
-        player_value = getRandom();
-        player.innerHTML = player_value;
-    }
+    function init() {
+        dealerValue = getRandom();
+        dealerCard.textContent = dealerValue;
+        playerValue = getRandom();
+        playerCard.textContent = playerValue;
+        wrapper.removeEventListener('transitionend', init);
+     }
 
     /*-------------------
      *playerのカードオープン
      ---------------------*/
-    function check(guess){
-        var str;
-        wrapper.classList.add('open');
-        if(dealer_value === player_value){
-            str = 'tie';
-        } else {
-            str = 'you' + getResult(guess);
-        }
-        result.innerHTML = str;
-        result.classList.remove('hidden');
+  function check(guess) {
+    var str;
+    if (wrapper.classList.contains('open')) {
+      return;
     }
+    wrapper.classList.add('open');
+    higher.classList.add('disabled');
+    lower.classList.add('disabled');
+    if (playerValue === dealerValue) {
+      str = 'draw';
+    } else {
+      str = 'You ' + getResultStr(guess);
+    }
+    result.textContent = str;
+    result.classList.remove('hidden');
+  }
     /*--------------------
      *判定関数
      ---------------------*/
-    function getResult(guess){
-        if(guess === 'higer' && player_value > dealer_value 
-         ||guess === 'lower' && player_value < dealer_value){
-            return ' win!!!';
-         } else {
-            return ' lose...';
-         }
+  function getResultStr(guess) {
+    if (
+      playerValue > dealerValue && guess === 'higher'
+      || playerValue < dealerValue && guess === 'lower'
+    ) {
+      return 'win!';
+    } else {
+      return 'lose...';
     }
+  }
     
     init();
     /*---------------------
      *higherイベント処理
      ----------------------*/
     higher.addEventListener('click', function() {
-        check(higher);
+        check('higher');
     });
     
     /*---------------------
      *lowerイベント処理
      ----------------------*/
     lower.addEventListener('click', function() {
-        check(lower);
+        check('lower');
     });
     
     retry.addEventListener('click', function() {
-        wrapper.classList.remove('open');
+        if (result.classList.contains('hidden')) {
+          return;
+        }
         result.classList.add('hidden');
-        wrapper.addEventListener('transitionend', function() {
-            init();   
-        });
+        wrapper.classList.remove('open');
+        higher.classList.remove('disabled');
+        lower.classList.remove('disabled');
+        wrapper.addEventListener('transitionend', init);
     });    
     /*---------------------
      *oneイベント処理
@@ -135,5 +144,16 @@
         value = value -100;
         money.innerHTML = value;
     });
+    
+    /*---------------------
+     *bank menuイベント処理
+     ----------------------*/
+    show.addEventListener('click', function() {
+      document.body.className = 'bank-open';
+    });
+
+    hide.addEventListener('click', function() {
+      document.body.className = '';
+    });     
                     
 }
