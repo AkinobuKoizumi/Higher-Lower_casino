@@ -119,7 +119,8 @@ body {
 
 .bottom-container {
   margin-top: 60px;
-  height: 150px;
+  padding-top: 25px;
+  height: 200px;
   background: #663914;
   border-radius: 4px;
   box-sizing: border-box;
@@ -144,15 +145,31 @@ body {
 .re-btn {
   color: #fff;
   width: 90px;
-  height: 50px;
+  height: 35px;
   box-sizing: border-box;
   border: 1px solid #fff;
   border-radius: 3px;
   background: #262525;
   text-align: center;
-  line-height: 44px;
+  line-height: 33px;
   cursor: pointer;
+  display: inline-block;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
 }
+.re-btn:hover {
+  opacity: .89;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+#retry.disabled {
+  opacity: .4;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+  
+}
+#deal.disabled {
+  opacity: .4;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
 .money {
   width: 90px;
 }
@@ -186,7 +203,7 @@ body {
 }
 .one:hover {
   opacity: 0.85;
-  
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);  
 }
 .five {
   background: #660033;
@@ -194,6 +211,7 @@ body {
 }
 .five:hover {
   opacity: 0.85; 
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);  
 }
 .ten {
   background: #006699;
@@ -201,6 +219,7 @@ body {
 }
 .ten:hover {
   opacity: 0.85; 
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);  
 }
 .twenty-five {
   background: #336633;
@@ -208,6 +227,7 @@ body {
 }
 .twenty-five:hover {
   opacity: 0.85;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);  
 }
 .one-handred {
   background: #262525;
@@ -215,9 +235,11 @@ body {
 }
 .one-handred:hover {
   opacity: 0.85;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);  
 }
 .plus:hover {
   opacity: 0.85;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);  
 }
 #bank {
   color: #fff;

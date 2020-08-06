@@ -11,6 +11,7 @@
     const wrapper = document.getElementById('wrapper');
     var result = document.getElementById('result');
     const retry = document.getElementById('retry');
+    const deal = document.getElementById('deal');
     const one = document.getElementById('one');
     const five = document.getElementById('five');
     const ten = document.getElementById('ten');
@@ -26,9 +27,9 @@
     const moneyBtn5 = document.getElementById('moneyBtn5');
     const moneyBtn6 = document.getElementById('moneyBtn6');
 
-　　/*---------
-　　 *手札管理
-　　 ----------*/
+  /*---------
+   *手札管理
+   ----------*/
     var dealerValue;
     var playerValue;
     
@@ -73,7 +74,11 @@
         playerValue = getRandom();
         playerCard.textContent = playerValue;
         wrapper.removeEventListener('transitionend', init);
+        retry.classList.add('disabled');
+        deal.classList.remove('disabled');
      }
+    
+
 
     /*-------------------
      *playerのカードオープン
@@ -86,6 +91,8 @@
     wrapper.classList.add('open');
     higher.classList.add('disabled');
     lower.classList.add('disabled');
+    retry.classList.remove('disabled');
+    deal.classList.add('disabled');
     addDisabled();
     if (playerValue === dealerValue) {
       str = 'draw';
@@ -187,6 +194,16 @@
         count_onehandred=0;
     });  
     
+    /*----------------------
+     *dealイベント処理
+     ----------------------*/
+    deal.addEventListener('click', function() {
+      if(result.classList.contains('hidden') == false){
+        return;
+      }
+    }); 
+     
+     
     
     /*---------------------
      *oneイベント処理
