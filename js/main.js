@@ -12,6 +12,7 @@
     var result = document.getElementById('result');
     const retry = document.getElementById('retry');
     const deal = document.getElementById('deal');
+    const comment = document.getElementById('comment');
     const one = document.getElementById('one');
     const five = document.getElementById('five');
     const ten = document.getElementById('ten');
@@ -88,6 +89,12 @@
     if (wrapper.classList.contains('open')) {
       return;
     }
+    if(higher.classList.contains('disabled')){
+      return ;
+    }
+    if(lower.classList.contains('disabled')){
+      return ;
+    }
     wrapper.classList.add('open');
     higher.classList.add('disabled');
     lower.classList.add('disabled');
@@ -158,6 +165,8 @@
      *リロード時の初期化
      ---------------------*/
      init();
+     higher.classList.add('disabled');
+     lower.classList.add('disabled');
     
     /*---------------------
      *higherイベント処理
@@ -183,9 +192,8 @@
         }
         result.classList.add('hidden');
         wrapper.classList.remove('open');
-        higher.classList.remove('disabled');
-        lower.classList.remove('disabled');
         removeDisabled();
+        
         wrapper.addEventListener('transitionend', init);
         count_one=0;
         count_five=0;
@@ -201,6 +209,16 @@
       if(result.classList.contains('hidden') == false){
         return;
       }
+      if(count_one===0 && count_five===0 && count_ten===0 
+         && count_twentyfive===0 && count_onehandred===0){
+           comment.classList.add('able');
+        return ;
+      } else {
+        comment.classList.remove('able');
+      }
+      higher.classList.remove('disabled');
+      lower.classList.remove('disabled');
+      
     }); 
      
      
@@ -228,7 +246,7 @@
         count_five++;
         console.log(count_five);
         value = value - 5;
-        money.innerHTML =  value;        
+        money.innerHTML =  value; 
     });
     /*---------------------
      *tenイベント処理
@@ -238,7 +256,6 @@
         return ;
       }
         count_ten++;
-        console.log(count_ten);
         value = value - 10;
         money.innerHTML =  value;
     });

@@ -179,7 +179,7 @@ body {
 }
 .tip-wrapper {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .tip {
   color: #fff;
@@ -241,6 +241,18 @@ body {
   opacity: 0.85;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);  
 }
+
+#comment {
+  margin: 0;
+  padding: 0;
+  color: red;
+  font-size: 13px;
+  visibility: hidden;
+}
+#comment.able {
+  visibility: visible;
+}
+
 #bank {
   color: #fff;
   background: #821F28;
@@ -314,3 +326,4 @@ body.bank-open #cover {
 body.bank-open #bank {
   right: 0;
 }
+
